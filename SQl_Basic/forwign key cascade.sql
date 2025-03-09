@@ -1,0 +1,12 @@
+create database exaple1;
+use exaple1;
+create table dept(dept_id int primary key,name varchar(10));
+create table teacher(t_id int primary key,name varchar(10),foreign key(t_id) references dept(dept_id) on delete cascade on update cascade);
+insert into dept value(101,"cse"),(102,"it");
+insert into teacher value(101,"Ayush"),(102,"Himanshu");
+select *from dept;
+select *from teacher;
+update dept set dept_id=201 where dept_id=101;
+delete from dept where dept_id=201;
+create table d(dept_id int primary key,name varchar(10));
+drop table d;

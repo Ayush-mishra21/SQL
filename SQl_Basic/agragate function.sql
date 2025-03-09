@@ -1,0 +1,11 @@
+use scholl;
+insert into student(ID,NAME,GRADE,MARKS,CITY)value(223,"q","A",23,"kol"),(243,"r","A",24,"delhi"),(253,"r","A",24,"delhi");
+select SUM(MARKS) from(select marks from (select distinct GRADE,MARKS from (select *from student order by MARKS asc)as dd)as ff)as sum;
+select *from student;
+select distinct MARKS,GRADE from (select *from student order by MARKS asc)as dd where MARKS>85;
+select CITY,avg(MARKS) from student group by CITY having avg(MARKS) > 40 order by  avg(MARKS) desc;
+select *from (select *from student where MARKS>50)as ss order by MARKS;
+select CITY from student where MARKS>55 group by CITY having max(MARKS)>=55 order by CITY;
+SET SQL_SAFE_UPDATES = 0;
+update student set NAME="ayush" where CITY="bihar";
+delete from student where MARKS<30;
